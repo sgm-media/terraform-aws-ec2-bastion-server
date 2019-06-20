@@ -101,7 +101,7 @@ resource "aws_instance" "default" {
 
 module "dns" {
   enabled   = var.zone_id != "" ? true : false
-  source    = "git::https://github.com/cloudposse/terraform-aws-route53-cluster-hostname.git?ref=tags/0.2.5"
+  source    = "git::https://github.com/sgm-media/terraform-aws-route53-cluster-hostname.git?ref=terraform-0-12"
   namespace = var.namespace
   name      = var.name
   stage     = var.stage
@@ -109,4 +109,3 @@ module "dns" {
   ttl       = 60
   records   = [aws_instance.default.public_dns]
 }
-
